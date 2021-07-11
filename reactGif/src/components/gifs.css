@@ -1,0 +1,14 @@
+.card_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+img{
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: fill;
+} 

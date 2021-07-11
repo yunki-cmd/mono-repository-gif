@@ -1,0 +1,30 @@
+
+.login:hover{
+  animation-name: login;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+
+}
+.out{
+  animation-name: outlog;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+
+}
+@keyframes login {
+  from{
+  }
+  to {
+      transform: scale(1.5);
+      border: transparent;
+  }
+}
+@keyframes outlog {
+  from{
+      transform: scale(1.5);
+      border: transparent;
+  }
+  to {
+    transform: scale(1);
+  }
+}

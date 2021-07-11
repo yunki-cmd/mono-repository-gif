@@ -1,0 +1,15 @@
+GET  https://api.giphy.com/v1/gifs/trending?api_key=ZuG5xtH47zGVHe4lXzdILIBEd89kdgoI&limit=25&rating=g
+###
+
+
+Get https://api.giphy.com/v1/gifs/0ehh95zmx6RcorqfHR?api_key=ZuG5xtH47zGVHe4lXzdILIBEd89kdgoI
+
+
+###
+POST http://localhost:5000/login
+content-type: application/json
+
+{
+  "user":"test",
+  "password":"test"
+}
