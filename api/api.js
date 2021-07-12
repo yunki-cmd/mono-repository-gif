@@ -11,9 +11,8 @@ const send = require("./middlewares/jwt")
 const login = require("./middlewares/login")
 app.use(cors())
 app.use(express.json())
-app.get("/:id", (req, resp) => {
-  const id = req.params.id
-  resp.send(`<h1>Hello${id}<h1>`)
+app.get("/", (req, resp) => {
+  resp.send(`<h1>Hello<h1>`)
 })
 app.post("/register", (req, resp) => {
   const { user, password, email } = req.body

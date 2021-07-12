@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Details from "./pages/details";
 import Login from "./pages/Login";
-
+import Register from "./pages/register"
 function App() {
 
   return (
@@ -32,6 +32,7 @@ function App() {
                   component={Details}
                   path="/details/:id"
                 ></PrivateRoute>
+                <Route component={Register} path="/register" />
                 <Route component={Login} path="/login" />
               </Switch>
             </Authe>

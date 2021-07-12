@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Redirect, Route } from "wouter";
 import {Auth} from "../../context/auth"
-import  GetAndVerifyToken from "../../Hooks/GetAndVeryToken"
-import veryToken from "../../services/veryToken";
+
 
 function PrivateRoute({ component, path }) {
   const { auth0 } = useContext(Auth);
