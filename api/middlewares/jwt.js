@@ -1,12 +1,10 @@
 const jwt = require("jsonwebtoken")
 
 exports.sendToken = function (req, resp) {
-  const user = req.body.user;
-  const password = req.body.password;
+  const { user} = req.body
   const token = jwt.sign(
     {
-      user: user,
-      password: password,
+      user: user
     },
     process.env.secret,
     { expiresIn: 60 * 60 },

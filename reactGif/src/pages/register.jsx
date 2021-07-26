@@ -1,8 +1,38 @@
-import React from "react"
+import React, { useRef } from "react"
 import {useLocation} from "wouter"
+import serverRegister from "../services/registerUser"
 
 function Register() {
-  const [,setlocation] = useLocation()
+    const [, setlocation] = useLocation()
+
+    const nombre = useRef()
+    const email = useRef()
+    const password = useRef()
+    const passwordValidator = useRef()
+
+    const handlerRegister = (event) => {
+        event.preventDefault()
+        
+        if (password.current.value === passwordValidator.current.value) {
+            serverRegister({
+              nombre: nombre.current.value,
+              email: email.current.value,
+                password: password.current.value
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    if (res.user) {
+                        setlocation("/login")
+                    } // funciona
+                })
+        } else {
+            console.err("error password")
+        }
+
+    }
+
+
   return (
 <div className="font-sans">
     <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
@@ -16,24 +46,24 @@ function Register() {
                 <form method="#" action="#" className="mt-10">
                                     
                     <div>
-                        <input type="text" placeholder="Nombres" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                        <input ref={nombre} type="text" placeholder="Nombres" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
                     </div>
                     <div className="mt-7">                
-                        <input type="email" placeholder="Correo electronico" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
-                    </div>
-
-                    <div className="mt-7">                
-                        <input type="password" placeholder="Contraseña" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
+                        <input type="email" ref={email} placeholder="Correo electronico" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
                     </div>
 
                     <div className="mt-7">                
-                        <input type="password" placeholder="Confirmar contraseña" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
+                        <input type="password" ref={password} placeholder="Contraseña" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
+                    </div>
+
+                    <div className="mt-7">                
+                        <input type="password" ref={passwordValidator} placeholder="Confirmar contraseña" className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"/>                           
                     </div>
 
                     
         
                     <div className="mt-7">
-                        <button className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                        <button onClick={handlerRegister} className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                             Registrar
                         </button>
                     </div>

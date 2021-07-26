@@ -13,3 +13,7 @@ content-type: application/json
   "user":"test",
   "password":"test"
 }
+
+###
+
+Get api.giphy.com/v1/gifs/categories?api_key=ZuG5xtH47zGVHe4lXzdILIBEd89kdgoI

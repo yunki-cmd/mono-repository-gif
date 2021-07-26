@@ -13,20 +13,24 @@ import Search from "./pages/Search";
 import Details from "./pages/details";
 import Login from "./pages/Login";
 import Register from "./pages/register"
+
 function App() {
 
   return (
     <>
-      <header className="App-header">
-        <Menu />
-      </header>
+      <Authe>
+        <header className="App-header">
+          <Menu />
+        </header>
+    
 
       <section className="h-5/6">
         <GifsContextProvider>
           <TrenddingGifsContext>
-            <Authe>
+          
               <Switch>
                 <Route component={Home} path="/" />
+                <Route component={Home} path="/home" />
                 <Route component={Search} path="/search/:keyword" />
                 <PrivateRoute
                   component={Details}
@@ -35,10 +39,10 @@ function App() {
                 <Route component={Register} path="/register" />
                 <Route component={Login} path="/login" />
               </Switch>
-            </Authe>
           </TrenddingGifsContext>
         </GifsContextProvider>
       </section>
+    </Authe>
     </>
   );
 }

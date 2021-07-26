@@ -3,7 +3,7 @@ import React,{ useState  } from "react";
 
 const Buscador = () => {
   const [keyword, setKeyword] = useState(localStorage.getItem("lastsearch")||"");
-  const [searchGifs, setSearchGifs] = useLocation();
+  const [,setSearchGifs] = useLocation();
 
   
   const handlerInput = (e) => {

@@ -7,6 +7,7 @@ import Spinner from "../components/spinner/spinner";
 import GetlocalStore from "../Hooks/getLocalStore";
 import "./Home.css";
 
+import Category from "../components/category/index"
 
 import veryfy from "../Hooks/GetAndVeryToken"
 
@@ -27,25 +28,39 @@ const Home = () => {
       {keyword === "no hay busqueda reciente" ? (
         <>
           <h2>Ultimas busquedas "{keyword}"</h2>
+          <aside>
+            <Category />
+          </aside>
           <section className="grid mx-3  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <aside>
+              <Category />
+            </aside>
             {loading ? <Spinner /> : null}
             <GifsIniciales />
           </section>
         </>
       ) : (
         <>
-            <article>
-              <header>
-                <h1 className="text text-xl font-bold  font-mono  lg:text-4xl capitalize">Ultima busqueda "{decodeURI(keyword)} "</h1>
-              </header>
-            <section className="grid mx-3 text-center  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-screen ">
-              {loading ? <Spinner /> : null}
-              <ListOfGifs gifs={gif} />
-            </section>
-            <section>
-              <TrenddingGifs />
-            </section>
-          </article>
+          <header>
+            <h1 className="text text-xl font-bold  font-mono  lg:text-4xl capitalize">
+              Ultima busqueda "{decodeURI(keyword)} "
+            </h1>
+          </header>
+          <div className="grid grid-cols-1 sm:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 min-h-screen">
+              <aside className=" sm:col-start-1 sm:col-end-3">
+                <h2 className="text-4xl m-3">Categorias</h2>
+              <Category />
+            </aside>
+            <article className="col-start-3 col-end-12">
+              <section className="grid  mx-3 text-center  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-screen ">
+                {loading ? <Spinner /> : null}
+                <ListOfGifs gifs={gif} />
+              </section>
+            </article>
+          </div>
+          <footer>
+            <TrenddingGifs />
+          </footer>
         </>
       )}
     </>

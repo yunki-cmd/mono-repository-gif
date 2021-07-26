@@ -13,9 +13,12 @@ function Login() {
     const password = pass.current.value;
      LoginServices(user, password)
       .then(res => res.json())
-      .then(resp => {
-        window.localStorage.setItem("token", resp.token);
-        setlocation("/")
+       .then(resp => {
+        console.log(resp.error);
+        if (!resp.error) {
+          window.localStorage.setItem("token", resp.token);
+          setlocation("/")
+        }
       });
 
   };

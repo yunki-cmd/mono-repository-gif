@@ -1,4 +1,4 @@
-const fs = require("fs");
+/* const fs = require("fs");
 const path = require("path");
 
 exports.login = function (req, resp, next) {
@@ -11,3 +11,18 @@ exports.login = function (req, resp, next) {
     resp.status(403).send({"status":"error"});
   }
 }  
+ */
+const User = require("../model/user")
+
+
+exports.login = function (req, resp, next) {
+  const { user, password } = req.body
+  User.findOne({ user: user, password: password })
+    .then(res => {
+      if ( res !== null) {
+        next()
+      } else {
+        resp.send({"error":"no se ha encontrado el usuario"})
+      }
+    })
+}
