@@ -1,6 +1,9 @@
 GET  https://api.giphy.com/v1/gifs/trending?api_key=ZuG5xtH47zGVHe4lXzdILIBEd89kdgoI&limit=25&rating=g
 ###
 
+GET https://api.giphy.com/v1/gifs/trending?api_key=ZuG5xtH47zGVHe4lXzdILIBEd89kdgoI&limit=20&rating=g 
+
+###
 
 Get https://api.giphy.com/v1/gifs/0ehh95zmx6RcorqfHR?api_key=ZuG5xtH47zGVHe4lXzdILIBEd89kdgoI
 

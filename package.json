@@ -9,6 +9,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm build-script --workspace=reactGif",
     "start": "npm start --workspace=reactGif",
     "dev:api": "npm run dev --workspace=api"
   },

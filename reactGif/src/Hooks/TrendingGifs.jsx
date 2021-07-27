@@ -11,6 +11,7 @@ const SetTrendingGifs = () => {
        .then((result) => result.json())
        .then((dato) => {
          const data = dato.data;
+         console.log(data)
          const gif = data.map((element) => {
            return {
              title: element.title,
@@ -21,7 +22,6 @@ const SetTrendingGifs = () => {
          setGifs(gif);
        });
    }, [setGifs]);
-  
   return { gifs };
 }
 export default SetTrendingGifs
