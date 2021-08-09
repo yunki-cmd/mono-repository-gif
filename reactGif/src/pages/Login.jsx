@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useLocation } from "wouter";
 import LoginServices from "../services/login"
-
+import useGetAndVeryToken from "../Hooks/GetAndVeryToken"
 function Login() {
   const [, setlocation] = useLocation();
-
+  const{login} = useGetAndVeryToken()
   const nick = useRef()
   const pass = useRef()
   const handlerSubmit = (e) => {
@@ -14,9 +14,9 @@ function Login() {
      LoginServices(user, password)
       .then(res => res.json())
        .then(resp => {
-        console.log(resp.error);
         if (!resp.error) {
           window.localStorage.setItem("token", resp.token);
+          login()
           setlocation("/")
         }
       });

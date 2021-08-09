@@ -6,7 +6,7 @@ function Register({ nombre, email, password }) {
     password: password,
     email:email
   }
-  return fetch("http://localhost:5000/register", {
+  return fetch("/register/user", {
     method: "Post",
     headers: {
       "Content-Type": "application/json"

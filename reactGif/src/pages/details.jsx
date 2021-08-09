@@ -13,6 +13,7 @@ const Details = ({ params }) => {
       <>
         <div className="flex justify-center items-center h-full">
           <Gifs {...detailgifs} />
+          
         </div>
         <section>
           <TrenddingGifs />

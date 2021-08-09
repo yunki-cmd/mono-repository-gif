@@ -1,13 +1,14 @@
 import { Link, useLocation } from "wouter";
-import React, { useContext, useEffect, useRef } from "react";
+import React, {  useContext, useRef } from "react";
 import "./menu.css";
-import { Auth } from "../../context/auth"
-
+import useGetAndVeryToken  from "../../Hooks/GetAndVeryToken"
+import {Auth} from "../../context/auth"
 
 function Menu() {
   const log = useRef();
-
-  const {auth0,setauth0} = useContext(Auth)
+  const{auth0} = useContext(Auth).state
+  console.log(auth0);
+  const {logout} = useGetAndVeryToken()
   const [, setlocation] = useLocation();
 
   const hadnlerLogin = (event) => {
@@ -19,9 +20,8 @@ function Menu() {
         setlocation("/register");
       } else if (redir === "LogOut") {
         window.localStorage.removeItem("token");
+        logout()
         setlocation("/login")
-        setauth0(false);
-        
       }
   }
 

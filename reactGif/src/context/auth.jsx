@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useReducer,  } from "react";
 
 const Auth = React.createContext();
 
 export function Authe({ children }) {
-  const [auth0, setauth0] = useState(false);
 
-  return <Auth.Provider value={{ auth0, setauth0 }}>
+  const reducer = (state,action) => {
+    if (action.type === "verify") {
+      return {
+        ...state,
+        auth0 : action.payload
+      }
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer, {
+    auth0:false
+  }
+  );
+
+  return <Auth.Provider value={{ state , dispatch }}>
     {children}
   </Auth.Provider>;
 }

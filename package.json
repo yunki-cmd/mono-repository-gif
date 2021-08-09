@@ -6,15 +6,15 @@
     "reactGif"
   ],
   "version": "1.0.0",
-  "description": "",
+  "description": "proyecto del curso de midudev",
   "main": "index.js",
   "scripts": {
-    "build": "npm build-script --workspace=reactGif",
+    "build": "npm run build --workspace=reactGif",
     "start": "npm start --workspace=reactGif",
     "dev:api": "npm run dev --workspace=api"
   },
   "keywords": [],
-  "author": "",
+  "author": "yunki-cmd",
   "license": "ISC",
   "dependencies": {
     "api": "file:api",

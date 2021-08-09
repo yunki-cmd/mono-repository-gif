@@ -3,7 +3,7 @@ require("./mongoose")
 
 const express = require("express")
 const app = express();
-const port = 5000 || process.env.port;
+const port = process.env.PORT || 5000;
 const cors = require("cors");
 const path =require("path")
 const register = require("./middlewares/register")
@@ -16,13 +16,8 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname,"public")))
 
 
-app.get("/", (req, res) => {
-  console.log(build);
-  res.sendFile(path.join(__dirname ,"public","index.html"));
-})
-
-app.post("/register",register.register)
-app.post("/login",login.login, send.sendToken)
+app.post("/register/user",register.register)
+app.post("/login/user",login.login, send.sendToken)
 app.post("/login/verify",send.veryToken)
 
 app.listen(port,() => {

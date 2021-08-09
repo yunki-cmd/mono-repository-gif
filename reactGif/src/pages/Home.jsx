@@ -9,10 +9,8 @@ import "./Home.css";
 
 import Category from "../components/category/index"
 
-import veryfy from "../Hooks/GetAndVeryToken"
 
 const Home = () => {
-  veryfy()
   const { keyword } = GetlocalStore({
     variableLocal: "lastsearch",
     error: "no hay busqueda reciente",
@@ -33,7 +31,7 @@ const Home = () => {
             </h1>
           </header>
           <section className="grid grid-cols-1 sm:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 min-h-screen">
-            <aside className=" sm:col-start-1 sm:col-end-3">
+            <aside className="hidden sm:block sm:col-start-1 sm:col-end-3">
               <h2 className="text-4xl m-3">Categorias</h2>
               <Category />
             </aside>
@@ -53,7 +51,7 @@ const Home = () => {
             </h1>
           </header>
           <div className="grid grid-cols-1 sm:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 min-h-screen">
-            <aside className=" sm:col-start-1 sm:col-end-3">
+            <aside className="hidden sm:block sm:col-start-1 sm:col-end-3">
               <h2 className="text-4xl m-3">Categorias</h2>
               <Category />
             </aside>
